@@ -10,5 +10,8 @@ dependencies:
   - matplotlib-base=3.9
   - pytest=8
   - r-base=4.3
+  - r-biocmanager
+  - c-compiler
+  - make
   - bioconductor-affy
   - bioconductor-hgu133plus2cdf

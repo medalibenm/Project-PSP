@@ -188,7 +188,7 @@ check_prerequisites() {
     done
     local file
     for file in environment.yml data/checksums.sha256 scripts/normalize.R \
-                scripts/analyse.py tests/test_analyse.py; do
+                scripts/rebuild_preprocesscore.R scripts/analyse.py tests/test_analyse.py; do
         require_file "$ROOT/$file"
     done
 }
@@ -235,6 +235,9 @@ setup_env() {
         *)     run_step "creation de l'environnement" \
                    "$manager" create -y -q -p "$ENV_DIR" -f "$ROOT/environment.yml" ;;
     esac
+    # R doit trouver le compilateur de l'environnement dans le PATH.
+    PATH="$ENV_DIR/bin:$PATH" CONDA_PREFIX="$ENV_DIR" run_step "recompilation de preprocessCore" \
+        "$ENV_DIR/bin/Rscript" "$ROOT/scripts/rebuild_preprocesscore.R"
     printf '%s\n' "$want" >"$ENV_DIR/.environment.sha256"
 }
 
