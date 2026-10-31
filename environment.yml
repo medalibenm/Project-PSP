@@ -1,0 +1,14 @@
+name: projet_maladie
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy=1.26
+  - pandas=2.2
+  - scipy=1.13
+  - matplotlib-base=3.9
+  - pytest=8
+  - r-base=4.3
+  - bioconductor-affy
+  - bioconductor-hgu133plus2cdf

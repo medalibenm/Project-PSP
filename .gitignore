@@ -1,0 +1,10 @@
+data/raw/
+data/interim/
+data/processed/
+results*/
+logs/*.log
+.env/
+.tools/
+.tmp.*
+__pycache__/
+*.pyc
